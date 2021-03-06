@@ -16,6 +16,8 @@ $curso->adicionaAlunoParaEspera(new Aluno('Patricia Freitas'));
 $curso->adicionaAlunoParaEspera(new Aluno('Vinicius Dias'));
 $curso->adicionaAlunoParaEspera(new Aluno('Ana Maria'));
 
+echo '------------------------' . PHP_EOL;
+
 foreach ($curso->recuperaAlunosEsperando() as $aluno) {
     echo $aluno->nome . PHP_EOL;
 }

@@ -20,6 +20,11 @@ class Curso
         $this->alteracoes->push($alteracao);
     }
 
+    public function desfazAlteracao(): void
+    {
+        $this->alteracoes->pop();
+    }
+
     public function recuperaAlteracoes(): Stack
     {
         return $this->alteracoes->copy();
