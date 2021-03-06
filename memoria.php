@@ -1,6 +1,6 @@
 <?php
 
-$array = [];
+$array = new SplFixedArray(32769);
 
 for ($i = 0; $i < 32769; $i++) {
     $array[$i] = $i;
