@@ -18,3 +18,13 @@ $curso->adicionaAlunoParaEspera('Ana Maria');
 foreach ($curso->recuperaAlunosEsperando() as $aluno) {
     echo $aluno . PHP_EOL;
 }
+
+$curso->matriculaAluno('Patricia Freitas');
+$curso->matriculaAluno('Rogério');
+$curso->matriculaAluno('Patricia Freitas');
+
+echo '------------------------' . PHP_EOL;
+
+foreach ($curso->recuperaAlunosMatriculados() as $aluno) {
+    echo $aluno . PHP_EOL;
+}
