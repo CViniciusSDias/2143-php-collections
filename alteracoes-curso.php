@@ -7,9 +7,14 @@ $curso->adicionaAlteracao('Primeira aula criada');
 $curso->adicionaAlteracao('Segunda aula modificada');
 $curso->adicionaAlteracao('Terceira aula concluída');
 
-$lista = $curso->recuperaAlteracoes();
-$lista->shift();
-
 foreach ($curso->recuperaAlteracoes() as $alteracao) {
     echo $alteracao . PHP_EOL;
+}
+
+$curso->adicionaAlunoParaEspera('Patricia Freitas');
+$curso->adicionaAlunoParaEspera('Vinicius Dias');
+$curso->adicionaAlunoParaEspera('Ana Maria');
+
+foreach ($curso->recuperaAlunosEsperando() as $aluno) {
+    echo $aluno . PHP_EOL;
 }
