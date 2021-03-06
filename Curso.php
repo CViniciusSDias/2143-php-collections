@@ -1,16 +1,18 @@
 <?php
 
+use Ds\{Stack, Queue, Set};
+
 class Curso
 {
-    private SplStack $alteracoes;
-    private SplQueue $filaDeEsperaDeAlunos;
-    private SplObjectStorage $alunosMatriculados;
+    private Stack $alteracoes;
+    private Queue $filaDeEsperaDeAlunos;
+    private Set $alunosMatriculados;
 
     public function __construct(public string $nome)
     {
-        $this->alteracoes = new SplStack();
-        $this->filaDeEsperaDeAlunos = new SplQueue();
-        $this->alunosMatriculados = new SplObjectStorage();
+        $this->alteracoes = new Stack();
+        $this->filaDeEsperaDeAlunos = new Queue();
+        $this->alunosMatriculados = new Set();
     }
 
     public function adicionaAlteracao(string $alteracao): void
@@ -18,28 +20,28 @@ class Curso
         $this->alteracoes->push($alteracao);
     }
 
-    public function recuperaAlteracoes(): SplStack
+    public function recuperaAlteracoes(): Stack
     {
-        return clone $this->alteracoes;
+        return $this->alteracoes->copy();
     }
 
     public function adicionaAlunoParaEspera(Aluno $aluno): void
     {
-        $this->filaDeEsperaDeAlunos->enqueue($aluno);
+        $this->filaDeEsperaDeAlunos->push($aluno);
     }
 
-    public function recuperaAlunosEsperando(): SplQueue
+    public function recuperaAlunosEsperando(): Queue
     {
-        return clone $this->filaDeEsperaDeAlunos;
+        return $this->filaDeEsperaDeAlunos->copy();
     }
 
     public function matriculaAluno(Aluno $aluno): void
     {
-        $this->alunosMatriculados->attach($aluno);
+        $this->alunosMatriculados->add($aluno);
     }
 
-    public function recuperaAlunosMatriculados(): SplObjectStorage
+    public function recuperaAlunosMatriculados(): Set
     {
-        return clone $this->alunosMatriculados;
+        return clone $this->alunosMatriculados->copy();
     }
 }

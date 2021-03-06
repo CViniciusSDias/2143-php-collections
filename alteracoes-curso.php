@@ -12,8 +12,7 @@ foreach ($curso->recuperaAlteracoes() as $alteracao) {
     echo $alteracao . PHP_EOL;
 }
 
-$patricia = new Aluno('Patricia Freitas');
-$curso->adicionaAlunoParaEspera($patricia);
+$curso->adicionaAlunoParaEspera(new Aluno('Patricia Freitas'));
 $curso->adicionaAlunoParaEspera(new Aluno('Vinicius Dias'));
 $curso->adicionaAlunoParaEspera(new Aluno('Ana Maria'));
 
@@ -21,9 +20,9 @@ foreach ($curso->recuperaAlunosEsperando() as $aluno) {
     echo $aluno->nome . PHP_EOL;
 }
 
-$curso->matriculaAluno($patricia);
+$curso->matriculaAluno(new Aluno('Patricia Freitas'));
 $curso->matriculaAluno(new Aluno('Rogério'));
-$curso->matriculaAluno($patricia);
+$curso->matriculaAluno(new Aluno('Patricia Freitas'));
 
 echo '------------------------' . PHP_EOL;
 
